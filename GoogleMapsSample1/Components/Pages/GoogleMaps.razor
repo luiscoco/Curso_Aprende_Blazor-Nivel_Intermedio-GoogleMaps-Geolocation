@@ -1,0 +1,20 @@
+﻿@page "/googleMaps"
+
+@inject IJSRuntime JSRuntime
+
+<h3>Google Maps with Geolocation</h3>
+
+<!-- Map container -->
+<div id="map-container">
+    <div id="map" style="height: 400px; width: 100%;"></div>
+</div>
+
+<!-- Button to trigger geolocation and center the map -->
+<button class="btn btn-primary" @onclick="PanToCurrentLocation">Pan to Current Location</button>
+
+@code {
+    private async Task PanToCurrentLocation()
+    {
+        await JSRuntime.InvokeVoidAsync("initMap");
+    }
+}
